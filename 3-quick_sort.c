@@ -1,19 +1,5 @@
 #include "sort.h"
 
-
-/**
- * swap - function to switch a and b
- * @a: input a
- * @b: input b
- */
-
-void swap(int *a, int *b)
-{
-	int temp = *a;
-	*a = *b;
-	*b = temp;
-}
-
 /**
  * lomuto - lomuto partition method.
  * @arr: the array
