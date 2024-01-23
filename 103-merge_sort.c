@@ -65,13 +65,12 @@ void mergetopdown(int *array, size_t left, size_t right, int *clone)
 
 void merge_sort(int *array, size_t size)
 {
-	int i, *clone = malloc(sizeof(int) * size);
+	int i, *clone;
 
-	if (!clone)
-	{
-		return;
-	}
 	if (!array || size <= 1)
+		return;
+	clone = malloc(sizeof(int) * size);
+	if(!clone)
 		return;
 
 	for (i = 0; i < (int)size; i++)
