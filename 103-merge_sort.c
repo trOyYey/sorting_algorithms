@@ -70,7 +70,7 @@ void merge_sort(int *array, size_t size)
 	if (!array || size <= 1)
 		return;
 	clone = malloc(sizeof(int) * size);
-	if(!clone)
+	if (!clone)
 		return;
 
 	for (i = 0; i < (int)size; i++)
