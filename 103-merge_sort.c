@@ -69,7 +69,6 @@ void merge_sort(int *array, size_t size)
 
 	if (!clone)
 	{
-		free(clone);
 		return;
 	}
 	if (!array || size <= 1)
@@ -78,7 +77,7 @@ void merge_sort(int *array, size_t size)
 	for (i = 0; i < (int)size; i++)
 		clone[i] = array[i];
 
-	mergetopdown(array, 0, (int)size, clone);
+	mergetopdown(array, 0, size, clone);
 	free(clone);
 	clone = NULL;
 }
