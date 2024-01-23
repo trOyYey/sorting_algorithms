@@ -34,7 +34,8 @@ void shell_sort(int *array, size_t size)
 	{
 		for (i = 0; i < size; i++)
 		{
-			for (j = i + gap; j < size;)
+			j = i + gap;
+			if (j < size)
 			{
 				if (array[i] > array[j])
 				{
@@ -47,11 +48,13 @@ void shell_sort(int *array, size_t size)
 					if ((int)k >= 0 && (array[k] > array[i]))
 						swap(&array[k], &array[i]);
 				}
+			}
+			else
+			{
+			/* to ensure ith loop does not continue if jth >=size */
+				i = size;
 				break;
 			}
-			/* to ensure ith loop does not continue if jth >=size */
-			if (j >= size)
-				i = size;
 		}
 		print_array(array, size);
 	}

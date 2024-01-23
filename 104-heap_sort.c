@@ -9,7 +9,8 @@ void heap_sort(int *array, size_t size)
 {
 	size_t i;
 
-	if (array == NULL || size < 2)                                                          return;
+	if (array == NULL || size < 2)
+		return;
 
 	/* to heapify (max) the array; i is last non leaf node */
 	for (i = size / 2 - 1; (int)i >= 0; i--) /* iteration goes back to root */
