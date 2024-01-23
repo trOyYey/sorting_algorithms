@@ -1,7 +1,8 @@
 #include "sort.h"
 
-/*
- * cockktail_sort - function that sorts lists using cocktail sort
+
+/**
+ * cocktail_sort_list - function that sorts lists using cocktail sort
  * @list: pointer to doubly linked lists
  */
 
@@ -45,10 +46,11 @@ void cocktail_sort_list(listint_t **list)
 	}
 }
 
-/*
- * swap - function that swiitches position of two lists
+/**
+ * swap_list - function that swiitches position of two lists
  * @a: pointer to list a
  * @b: pointer to list b
+ * @list: pointer to linked lists
  */
 
 void swap_list(listint_t **list, listint_t *a, listint_t *b)
