@@ -49,7 +49,7 @@ void mergetopdown(int *array, size_t left, size_t right, int *clone)
 {
 	size_t middle = (right + left) / 2;
 
-	if (left >= right - 1)
+	if (right - left <= 1)
 		return;
 
 	mergetopdown(clone, left, middle, array);
