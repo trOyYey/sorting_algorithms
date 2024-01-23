@@ -3,8 +3,8 @@
 /**
  * get_digit - gets dgit
  *
- * @n: number
- * @l: place of digit
+ * @number: number
+ * @position: place of digit
  * Return: specified digit
  */
 
@@ -18,7 +18,7 @@ int get_digit(int number, int position)
 }
 
 /**
- * get_digits - finds biggest amount of digits in biggest number
+ * get_ldigits - finds biggest amount of digits in biggest number
  * @array: the array to sort
  * @size: size of array
  * Return: the lenght of the digits needed
@@ -28,7 +28,8 @@ int get_ldigits(int *array, size_t size)
 	int n;
 	int num_digits = 0;
 
-	if (size == 0) return 0;
+	if (size == 0)
+		return (0);
 
 	n = array[size - 1];
 	while (size-- > 0)
