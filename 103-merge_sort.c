@@ -29,8 +29,8 @@ void merge(int *array, size_t left, size_t middle, size_t right, int *clone)
 		}
 		else
 		{
-		array[x] = clone[j];
-		j++;
+			array[x] = clone[j];
+			j++;
 		}
 		x++;
 	}
