@@ -34,5 +34,8 @@ void cocktail_sort_list(listint_t **list);
 void merge_sort(int *array, size_t size);
 void mergetopdown(int *array, size_t left, size_t right, int *clone);
 void merge(int *array, size_t left, size_t middle, size_t right, int *clone);
+int get_digit(int number, int position);
+int get_ldigits(int *array, size_t size);
+void radix_sort(int *array, size_t size);
 
 #endif
