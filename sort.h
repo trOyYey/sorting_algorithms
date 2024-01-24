@@ -39,5 +39,8 @@ int get_ldigits(int *array, size_t size);
 void radix_sort(int *array, size_t size);
 void sift_down(int *array, size_t size, size_t i);
 void heap_sort(int *array, size_t size);
+void quick_sort_hoare(int *array, size_t size);
+void recursive_quick(int *array, size_t size, int left, int right);
+int hoare_part(int *array, size_t size, int left, int right);
 
 #endif
