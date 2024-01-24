@@ -12,10 +12,10 @@
 
 int hoare_part(int *array, size_t size, int left, int right)
 {
-    int pv = array[right];
-    int i = left - 1;
-    int j = right + 1;
-    int tmp;
+	int pv = array[right];
+	int i = left - 1;
+	int j = right + 1;
+	int tmp;
 
 	while (1)
 	{
@@ -26,7 +26,7 @@ int hoare_part(int *array, size_t size, int left, int right)
 			j--;
 		while (array[j] > pv);
 		if (i >= j)
-			return(i);
+			return (i);
 		tmp = array[i];
 		array[i] = array[j];
 		array[j] = tmp;
