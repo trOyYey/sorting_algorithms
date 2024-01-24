@@ -37,5 +37,7 @@ void merge(int *array, size_t left, size_t middle, size_t right, int *clone);
 int get_digit(int number, int position);
 int get_ldigits(int *array, size_t size);
 void radix_sort(int *array, size_t size);
+void sift_down(int *array, size_t size, size_t i);
+void heap_sort(int *array, size_t size);
 
 #endif
