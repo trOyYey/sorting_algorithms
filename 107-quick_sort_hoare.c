@@ -12,26 +12,26 @@
 
 int hoare_part(int *array, size_t size, int left, int right)
 {
-	int pv = array[right], tmp;
-	int i = left;
-	int j = right;
+    int pv = array[right];
+    int i = left - 1;
+    int j = right + 1;
+    int tmp;
 
-	while (i < j)
+	while (1)
 	{
-		while (array[i] < pv && i < j)
+		do
 			i++;
-		while (array[j] > pv && i < j)
+		while (array[i] < pv);
+		do
 			j--;
-
-		if (i < j)
-		{
-			tmp = array[i];
-			array[i] = array[j];
-			array[j] = tmp;
-			print_array(array, size);
-		}
+		while (array[j] > pv);
+		if (i >= j)
+			return(i);
+		tmp = array[i];
+		array[i] = array[j];
+		array[j] = tmp;
+		print_array(array, size);
 	}
-	return (i);
 }
 
 /**
@@ -49,8 +49,8 @@ void recursive_quick(int *array, size_t size, int left, int right)
 	if (left >= right || left < 0)
 		return;
 	pvt = hoare_part(array, size, left, right);
-	recursive_quick(array, size, left, pivot - 1);
-	recursive_quick(array, size, pivot, right);
+	recursive_quick(array, size, left, pvt - 1);
+	recursive_quick(array, size, pvt, right);
 
 }
 
