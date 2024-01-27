@@ -3,9 +3,11 @@
 #define leftchildheap(x) (((x) * 2) + 1)
 
 /**
- * swap - swap between two variables
+ * swap_plus_print - swap between two variables
  * @var1: the first variable
  * @var2: the second variable
+ * @array: array to print after swapping
+ * @size: size of the array
  */
 
 void swap_plus_print(int *array, size_t size, int *var1, int *var2)
@@ -28,7 +30,7 @@ void swap_plus_print(int *array, size_t size, int *var1, int *var2)
 void heap_struct(int *array, size_t size)
 {
 	ssize_t left;
-	
+
 	for (left = parentheap(size - 1); left >= 0; left--)
 	{
 		sift_down(array, left, size - 1, size);
@@ -61,7 +63,8 @@ void heap_sort(int *array, size_t size)
  * sift_down - sorts a distorted node down to its leaf unto max
  * @array: the given array/heap
  * @size: the size of the array
- * @i: the distorted node
+ * @left: start of the array
+ * @right: end of the array
  */
 
 void sift_down(int *array, size_t left, size_t right, size_t size)
@@ -77,7 +80,7 @@ void sift_down(int *array, size_t left, size_t right, size_t size)
 		if (child + 1 <= right &&
 				array[_switch] < array[child + 1])
 			_switch = child + 1;
-		if (_switch == seed )
+		if (_switch == seed)
 			return;
 		swap_plus_print(array, size, &array[seed], &array[_switch]);
 	}
