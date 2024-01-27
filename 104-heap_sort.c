@@ -1,4 +1,6 @@
 #include "sort.h"
+#define parentheap(x) (((x) - 1) / 2)
+#define leftchildheap(x) (((x) * 2) + 1)
 
 /**
  * swap - swap between two variables
@@ -6,13 +8,31 @@
  * @var2: the second variable
  */
 
-void swap(int *var1, int *var2)
+void swap_plus_print(int *array, size_t size, int *var1, int *var2)
 {
-        int temp;
+	if (*var1 != *var2)
+	{
+		*var1 = *var1 + *var2;
+		*var2 = *var1 - *var2;
+		*var1 = *var1 - *var2;
+	}
+	print_array((const int *) array, size);
+}
 
-        temp = *var1;
-        *var1 = *var2;
-        *var2 = temp;
+/**
+ * heap_struct - heapify function
+ * @array: array to heapify
+ * @size: size of the array
+ */
+
+void heap_struct(int *array, size_t size)
+{
+	ssize_t left;
+	
+	for (left = parentheap(size - 1); left >= 0; left--)
+	{
+		sift_down(array, left, size - 1, size);
+	}
 }
 
 /**
@@ -20,24 +40,20 @@ void swap(int *var1, int *var2)
  * @array: the given array
  * @size: the sizemofmthe array
  */
+
 void heap_sort(int *array, size_t size)
 {
-	size_t i;
+	size_t right;
 
 	if (array == NULL || size < 2)
 		return;
 
-	/* to heapify (max) the array; i is last non leaf node */
-	for (i = size / 2 - 1; (int)i >= 0; i--) /* iteration goes back to root */
-		sift_down(array, size, i);
-
-	/* to extract largest (array[0]) and order them from rear of array */
-	for (i = size - 1; (int)i >= 0; i--)
+	heap_struct(array, size);
+	for (right = size - 1; right > 0;)
 	{
-		swap(&array[0], &array[i]);
-		print_array(array, size);
-
-		sift_down(array, i, 0);
+		swap_plus_print(array, size, &array[right], &array[0]);
+		right--;
+		sift_down(array, 0, right, size);
 	}
 }
 
@@ -47,23 +63,22 @@ void heap_sort(int *array, size_t size)
  * @size: the size of the array
  * @i: the distorted node
  */
-void sift_down(int *array, size_t size, size_t i)
+
+void sift_down(int *array, size_t left, size_t right, size_t size)
 {
-	size_t L, R, largest;
+	size_t seed, _switch, child;
 
-	if (array == NULL || size < 2)
-		return;
-	largest = i; /* also the distorted node */
-	L = 2 * i + 1; /* index of left node of i */
-	R = 2 * i + 2; /* index of right node of i */
-
-	if (size > L && array[L] > array[largest])
-		largest = L;
-	if (size > R && array[R] > array[largest])
-		largest = R;
-	if (largest != i)
+	for (seed = left; leftchildheap(seed) <= right; seed = _switch)
 	{
-		swap(&array[largest], &array[i]);
-		sift_down(array, size, largest);
+		child = leftchildheap(seed);
+		_switch = seed;
+		if (array[_switch] < array[child])
+			_switch = child;
+		if (child + 1 <= right &&
+				array[_switch] < array[child + 1])
+			_switch = child + 1;
+		if (_switch == seed )
+			return;
+		swap_plus_print(array, size, &array[seed], &array[_switch]);
 	}
 }
