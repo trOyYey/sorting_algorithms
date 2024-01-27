@@ -6,14 +6,19 @@
  * @array: original array
  * @clone: clone of the array
  * @left: left slice of the array
- * @middle: middle part of the array
  * @right: the right slice of the array
  */
 
-void merge(int *array, size_t left, size_t middle, size_t right, int *clone)
+void merge(int *array, size_t left, size_t right, int *clone)
 {
-	size_t i = left, j = middle, x;
+	size_t i = left, j, middle = (right + left) / 2, x;
 
+	j = middle;
+	printf("Merging...\n");
+	printf("[left]: ");
+	print_array(&clone[left], middle - left);
+	printf("[right]: ");
+	print_array(&clone[middle], right - middle);
 	x = i;
 	while (x < right)
 	{
@@ -29,11 +34,6 @@ void merge(int *array, size_t left, size_t middle, size_t right, int *clone)
 		}
 		x++;
 	}
-	printf("Merging...\n");
-	printf("[left]: ");
-	print_array(&array[left], middle - left);
-	printf("[right]: ");
-	print_array(&array[middle], right - middle);
 	printf("[Done]: ");
 	print_array(&array[left], right - left);
 }
@@ -54,8 +54,7 @@ void mergetopdown(int *array, size_t left, size_t right, int *clone)
 
 	mergetopdown(clone, left, middle, array);
 	mergetopdown(clone, middle, right, array);
-
-	merge(array, left, middle, right, clone);
+	merge(array, left, right, clone);
 }
 /**
  * merge_sort - sorting function that uses merge method
