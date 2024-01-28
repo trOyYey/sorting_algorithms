@@ -10,7 +10,8 @@
  * @left: start of the array or sub array
  */
 
-void dynamic_print(int *array, int left, int lenght, int size, int pattern, int process)
+void dynamic_print(int *array, int left, int lenght,
+		int size, int pattern, int process)
 {
 	char *var1, *var2;
 
@@ -45,7 +46,8 @@ void dynamic_print(int *array, int left, int lenght, int size, int pattern, int 
  * @size: size of the array
  */
 
-void bit_merge(int *array, size_t left, size_t lenght, int pattern, size_t size)
+void bit_merge(int *array, size_t left,
+		size_t lenght, int pattern, size_t size)
 {
 	int pv = lenght / 2, temp;
 	size_t i;
@@ -77,7 +79,8 @@ void bit_merge(int *array, size_t left, size_t lenght, int pattern, size_t size)
  *
  */
 
-void divide_sort(int *array, size_t left, size_t lenght, int pattern, size_t size)
+void divide_sort(int *array, size_t left, size_t lenght,
+		int pattern, size_t size)
 {
 	int pv = lenght / 2;
 
