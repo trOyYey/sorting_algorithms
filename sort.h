@@ -44,9 +44,12 @@ void sift_down(int *array, size_t left, size_t right, size_t size);
 void quick_sort_hoare(int *array, size_t size);
 void recursive_quick(int *array, size_t size, int left, int right);
 int hoare_part(int *array, size_t size, int left, int right);
-void dynamic_print(int *array, int left, int lenght, int size, int pattern, int process);
-void bit_merge(int *array, size_t left, size_t lenght, int pattern, size_t size);
-void divide_sort(int *array, size_t left, size_t lenght, int pattern, size_t size);
+void dynamic_print(int *array, int left, int lenght,
+		int size, int pattern, int process);
+void bit_merge(int *array, size_t left,
+		size_t lenght, int pattern, size_t size);
+void divide_sort(int *array, size_t left,
+		size_t lenght, int pattern, size_t size);
 void bitonic_sort(int *array, size_t size);
 
 #endif
